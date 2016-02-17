@@ -1,6 +1,10 @@
 # insolent-kumquat
 A logging server
 
+## How to create logs
+
+1. `curl -X PUT https://your-heroku-app.herokuapp.com/ --header "Media-Type:application/json" -d "message = Some message"`
+
 ## How to view logs
 
 1. Clone the server
@@ -25,4 +29,3 @@ Pipe output through awk to remove some redundant log information
 Filter on a username
 
 ```heroku logs --source=app -n 1000  | awk '{ printf $1 } { print substr($0, index($0,$5)) }' | grep ying@intrepid.io```
-
